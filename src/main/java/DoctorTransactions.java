@@ -10,10 +10,7 @@ public class DoctorTransactions extends Connector implements Transactions {
 
     @Override
     public void add() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hastahane?serverTimezone=UTC", "root", "1234");
-        Statement st = con.createStatement();
-
+        Statement st = Connector.connectDB().createStatement();
         Doctor doctor = new Doctor();
         System.out.print("Doktor ismini giriniz : ");
         doctor.setAd(scan.nextLine());
@@ -40,9 +37,7 @@ public class DoctorTransactions extends Connector implements Transactions {
     // CRUD -- Create Read Update Delete
     @Override
     public void read() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hastahane?serverTimezone=UTC", "root", "1234");
-        Statement st = con.createStatement();
+        Statement st = Connector.connectDB().createStatement();
         ResultSet veri = st.executeQuery("select * from Doktorlar");
         System.out.printf("%-6s %-15.15s %-8s %-8s %-15s %-8s\n", "id", "Doktor Isim", "Doktor Soyisim", "Dogum Tarihi", "Brans", "Maas");
         System.out.println("====== ============== ========  ======= ============== ======== ");
@@ -89,9 +84,7 @@ public class DoctorTransactions extends Connector implements Transactions {
     }
 
     private void doktorMaasDegistir(int doktorID) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hastahane?serverTimezone=UTC", "root", "1234");
-        Statement st = con.createStatement();
+        Statement st = Connector.connectDB().createStatement();
         ResultSet doktorVeri = st.executeQuery("select * from Doktorlar where id=" + doktorID);
         // System.out.println("Isim bilgisini degistirmek istediginiz doktor : " + doktorVeri.getString(1));
         System.out.print("Doktorun guncel maasini giriniz : ");
@@ -137,9 +130,7 @@ public class DoctorTransactions extends Connector implements Transactions {
 //    }
 
     private void doktorIsimDegistir(String column, int doktorID) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hastahane?serverTimezone=UTC", "root", "1234");
-        Statement st = con.createStatement();
+        Statement st = Connector.connectDB().createStatement();
         // ResultSet doktorVeri = st.executeQuery("select * from Doktorlar where id="+doktorID);
         // System.out.println("Isim bilgisini degistirmek istediginiz doktor : " + doktorVeri.getString(1));
         System.out.print("Yeni doktor " + column + " giriniz : ");
@@ -150,9 +141,7 @@ public class DoctorTransactions extends Connector implements Transactions {
 
     @Override
     public void delete() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hastahane?serverTimezone=UTC", "root", "1234");
-        Statement st = con.createStatement();
+        Statement st = Connector.connectDB().createStatement();
         read();
         System.out.print("Silmek istediginiz doktorun ID sini giriniz : ");
         int input = scan.nextInt();
