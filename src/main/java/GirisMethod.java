@@ -9,9 +9,9 @@ public class GirisMethod {
     public void anaMenu() throws SQLException, ClassNotFoundException {
         System.out.println("JAVANAR HOSPITALE HOSGELDINIZ\n" +
                 "LUTFEN YAPMAK ISTEDIGINIZ ISLEMI SECINIZ\n" +
-                "1-)DOKTOR EKLE\n2-)DOKTORLARI LISTELE\n3-)DOKTOR BILGILERINI GUNCELLE\n4-)DOKTOR SIL");
+                "1-)DOKTOR EKLE\n2-)DOKTORLARI LISTELE\n3-)DOKTOR BILGILERINI GUNCELLE\n4-)DOKTOR SIL\n5-)HASTA EKLE");
 
-        int input = secenekKadarGirisAl(4);
+        int input = secenekKadarGirisAl(5);
 
         switch (input) {
             case 1: doctorTransactions.add();
@@ -21,6 +21,8 @@ public class GirisMethod {
             case 3 : doctorTransactions.update();
                 break;
             case 4 : doctorTransactions.delete();
+                break;
+            case 5 : Hasta.hastaEkle();
                 break;
             default:
                 System.out.println("kaybol");

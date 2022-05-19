@@ -10,6 +10,8 @@ public class DoctorTransactions extends Connector implements Transactions {
 
     @Override
     public void add() throws ClassNotFoundException, SQLException {
+
+
         Statement st = Connector.connectDB().createStatement();
         Doctor doctor = new Doctor();
         System.out.print("Doktor ismini giriniz : ");
