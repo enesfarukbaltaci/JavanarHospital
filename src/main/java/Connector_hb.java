@@ -10,7 +10,6 @@ import java.util.List;
 public class Connector_hb {
 
 
-
     public static void hastaTablosuVeriGir(Hasta hasta1) throws SQLException, ClassNotFoundException {
         Configuration con = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Hasta.class);
         SessionFactory sf = con.buildSessionFactory();
@@ -41,9 +40,11 @@ public class Connector_hb {
         sf.close();
 
         return (int) results.get(0);
-        };
 
-    }
+
+    };
+
+}
 
 
 

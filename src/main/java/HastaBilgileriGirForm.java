@@ -36,7 +36,7 @@ public class HastaBilgileriGirForm extends JFrame {
         // hangi panel, boyutlari ne, ve title
 
         add(panel1);
-        setSize(400, 450);
+        setSize(450, 550);
         setTitle("Hasta Bilgisi Giris Paneli");
 
         // paneli kapatinca ilgili class kapanmis olacak
@@ -98,6 +98,10 @@ public class HastaBilgileriGirForm extends JFrame {
                 } catch (ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
+
+                // veri girisi tamamlaninca paneli kapatalim
+                setVisible(false); // icerisindekileri gorunmez yap
+                dispose(); // paneli yok et yani kapat
 
 
                 // veri girisi yaptiktan sonra terminalde ana menu acilsin

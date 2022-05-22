@@ -17,8 +17,6 @@ public class Hasta {
 
     // 1- variables
 
-    // idCounter i db den en sonki id olarak cekelim
-
 
     @Id
     private int hasta_id;
