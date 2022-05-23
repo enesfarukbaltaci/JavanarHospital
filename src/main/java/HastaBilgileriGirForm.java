@@ -1,16 +1,20 @@
 import org.hibernate.query.Query;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JFrame;
+import javax.swing.text.DateFormatter;
 
 
-public class HastaBilgileriGirForm extends JFrame {
+
+public class HastaBilgileriGirForm<dobField> extends JFrame {
     private JPanel panel1;
     private JTextField textField1;
     private JTextField textField2;
@@ -26,6 +30,7 @@ public class HastaBilgileriGirForm extends JFrame {
     private JButton KAPATButton;
 
 
+
     // hasta1 objesini olusturalim
     Hasta hasta1 = new Hasta();
 
@@ -36,7 +41,7 @@ public class HastaBilgileriGirForm extends JFrame {
         // hangi panel, boyutlari ne, ve title
 
         add(panel1);
-        setSize(450, 550);
+        setSize(500, 500);
         setTitle("Hasta Bilgisi Giris Paneli");
 
         // paneli kapatinca ilgili class kapanmis olacak
@@ -83,8 +88,6 @@ public class HastaBilgileriGirForm extends JFrame {
 
 
 
-
-
                 System.out.println(hasta1);
 
 
@@ -113,8 +116,6 @@ public class HastaBilgileriGirForm extends JFrame {
                 } catch (ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
-
-                // Connector_hb.hastaTablosu().close();
 
 
             }

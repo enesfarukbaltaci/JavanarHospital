@@ -33,14 +33,23 @@ public class Connector_hb {
         Session session = sf.openSession();
         session.beginTransaction();
         String HQL_QUERY = "select max(hst.hasta_id) from Hasta hst";
-        Query query = session.createQuery(HQL_QUERY);
-        List results = query.list();
+        Query query = null;
+        int gonderilecekSayi=0;
+        while(true) {
+            try {
+                query = session.createQuery(HQL_QUERY);
+                List results = query.list();
+                gonderilecekSayi = (int) results.get(0);
+                break;
+            } catch (Exception e) {
+                // System.out.println("Query Exception Uretti");
+                session.close();
+                sf.close();
+                gonderilecekSayi = 1000;
+                break;
+            }
 
-        session.close();
-        sf.close();
-
-        return (int) results.get(0);
-
+        } return gonderilecekSayi;
 
     };
 
